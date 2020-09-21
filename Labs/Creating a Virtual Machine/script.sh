@@ -25,7 +25,7 @@ gcloud init < a
 
 # Create a Compute Engine instance and
 # add Nginx Server to your instance with necessary firewall rules
-if  gcloud compute instances create gcelab \
+if  gcloud compute instances create gcelab --machine-type n1-standard-2 --zone us-central1-c \
     --metadata-from-file startup-script=startup.sh \
     --tags http-server
 then
@@ -45,4 +45,5 @@ then
   fi
 fi
 
+sleep 5
 gcloud auth revoke --all
